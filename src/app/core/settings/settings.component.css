@@ -1,0 +1,14 @@
+.settings-container {
+  height: 100vh;   /* full screen height */
+  width: 100%;     /* full width */
+  display: flex;   /* center text */
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* light background */
+}
+
+.settings-container p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}

@@ -1,0 +1,75 @@
+.input-group .form-control {
+  border-radius: 50px;
+  padding-left: 10px;
+  height: 38px;
+}
+
+.input-group-text {
+  border-radius: 50px 0 0 50px;
+  border-right: 0;
+  background-color: #f8f9fa;
+}
+
+.input-group .form-control:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
+
+
+button.mat-icon-button .badge {
+  font-size: 0.7rem;
+  padding: 3px 5px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+
+.admin-menu button.mat-menu-item img {
+  margin-right: 10px;
+}
+
+.admin-menu button.mat-menu-item mat-icon {
+  margin-right: 10px;
+}
+
+.navbar img {
+  object-fit: cover;
+}
+
+.admin-wrapper {
+  cursor: pointer;
+}
+
+.admin-popup {
+  width: 250px;
+  background: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.admin-popup button.mat-button {
+  justify-content: flex-start;
+  text-transform: none;
+}
+
+.admin-popup button.mat-button mat-icon {
+  margin-right: 8px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.admin-menu-item{
+    background: none;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.signout{
+    color: red;
+}
+
+.notification{
+    background-color: #007bff;
+}

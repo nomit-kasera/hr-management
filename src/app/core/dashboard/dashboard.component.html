@@ -1,0 +1,114 @@
+<!-- Summary Cards -->
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-3" *ngFor="let stat of stats">
+        <mat-card class="stat-card text-center p-3">
+            <div class="d-flex justify-content-center align-items-center mb-2">
+                <div class="icon-circle" [ngStyle]="{'background-color': stat.bgColor}">
+                    <mat-icon class="stat-icon" [ngStyle]="{'color': stat.iconColor}">{{ stat.icon }}</mat-icon>
+                </div>
+                <h5 class="mb-0 ms-2">{{ stat.label }}</h5>
+            </div>
+            <h3 class="stat-value">{{ stat.value }}</h3>
+            <p class="stat-change" [ngClass]="{'positive': stat.change >=0, 'negative': stat.change < 0}">
+                {{ stat.change >= 0 ? '+' : ''}}{{ stat.change }}%
+            </p>
+        </mat-card>
+    </div>
+</div>
+
+
+
+
+<div class="row mt-4">
+    <!-- Chart -->
+    <div class="col-md-6">
+        <mat-card>
+            <h5 class="mb-3">Performance</h5>
+            <canvas id="performanceChart"></canvas>
+        </mat-card>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="col-md-6">
+        <mat-card class="p-3" style="overflow: scroll; max-height: 345px;">
+            <h5 class="mb-3">Recent Activity</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex align-items-center justify-content-between"
+                    *ngFor="let activity of activities">
+                    <div class="d-flex align-items-center">
+                        <!-- Activity icon circle -->
+                        <div class="activity-icon d-flex justify-content-center align-items-center me-3"
+                            [ngStyle]="{'background-color': activity.bgColor}">
+                            <mat-icon [ngStyle]="{'color': activity.iconColor}">{{ activity.icon }}</mat-icon>
+                        </div>
+                        <div>
+                            <div>{{ activity.description }}</div>
+                            <small class="text-muted">{{ activity.time }}</small>
+                        </div>
+                    </div>
+                    <mat-icon class="text-muted">chevron_right</mat-icon>
+                </li>
+            </ul>
+        </mat-card>
+    </div>
+
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <mat-card class="p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Employees</h5>
+                <button mat-raised-button class="primaryButton">
+                    <mat-icon>person_add</mat-icon> Add Employee
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <ng-container *ngFor="let column of employeeTableColumn">
+                                <th>{{column.name}}</th>
+                            </ng-container>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let emp of employees">
+                            <td class="d-flex align-items-center avatar-name">
+                                <mat-icon class="avatar-circle">
+                                    {{ getInitials(emp.name) }}
+                                </mat-icon>
+                                <div>
+                                    <div>{{ emp.name }}</div>
+                                    <small class="text-muted">{{ emp.email }}</small>
+                                </div>
+                            </td>
+                            <td>{{ emp.department }}</td>
+                            <td>{{ emp.position }}</td>
+                            <td>
+                                <span class="status-badge" [ngClass]="{
+                    'active': emp.status === 'Active',
+                    'on-leave': emp.status === 'On Leave',
+                    'inactive': emp.status === 'Inactive'
+                  }">
+                                    {{ emp.status }}
+                                </span>
+                            </td>
+                            <td>
+                                <button mat-icon-button color="primary" matTooltip="Send Email"
+                                    matTooltipPosition="above">
+                                    <mat-icon>email</mat-icon>
+                                </button>
+                                <button mat-icon-button color="accent" matTooltip="Call Employee"
+                                    matTooltipPosition="above">
+                                    <mat-icon>call</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-card>
+    </div>
+</div>
