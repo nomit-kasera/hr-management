@@ -19,7 +19,7 @@
 
 
 
-<div class="row mt-4">
+<div class="row mt-4 g-5">
     <!-- Chart -->
     <div class="col-md-6">
         <mat-card>
@@ -30,7 +30,7 @@
 
     <!-- Recent Activity -->
     <div class="col-md-6">
-        <mat-card class="p-3" style="overflow: scroll; max-height: 345px;">
+        <mat-card class="p-3 activity-card">
             <h5 class="mb-3">Recent Activity</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex align-items-center justify-content-between"
@@ -74,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let emp of employees">
+                        <tr *ngFor="let emp of employees" class="nowrap">
                             <td class="d-flex align-items-center avatar-name">
                                 <mat-icon class="avatar-circle">
                                     {{ getInitials(emp.name) }}

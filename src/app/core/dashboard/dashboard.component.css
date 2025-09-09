@@ -89,3 +89,11 @@ button.mat-icon-button {
     gap: 10px;
 }
 
+.nowrap{
+    white-space: nowrap;
+}
+
+.activity-card{
+    overflow: scroll; 
+    max-height: 345px;
+}
